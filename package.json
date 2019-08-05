@@ -8,6 +8,6 @@
     "start": "cross-env-shell electron \"$npm_package_main\""
   },
   "dependencies": {
-    "astilectron": "^1.0.0"
+    "@sbrow/astilectron": "^0.1.0"
   }
 }
