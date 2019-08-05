@@ -7,7 +7,7 @@ from an electron renderer process.
 
 go-astilectron is a great way to build a go app with a UI from scratch.
 However, its practically impossible to integrate it into an existsing electron app.
-This package shows that with just a few tweaks, it can easily become a drop-in package suitable for any type of electron project.
+This package shows that with just a few tweaks, go-astilectron can easily become a drop-in package suitable for any type of electron project.
 
 # Setting up
 
