@@ -1,0 +1,14 @@
+{
+  "name": "go-astilectron-from-js-example",
+  "version": "1.0.0",
+  "main": "./app/electron.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "go build -o app/main.exe src/main.go",
+    "start": "cross-env-shell electron \"$npm_package_main\"",
+    "prestart": "yarn build"
+  },
+  "dependencies": {
+    "astilectron": "^1.0.0"
+  }
+}
