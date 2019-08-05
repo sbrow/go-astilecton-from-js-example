@@ -1,3 +1,4 @@
+// command main starts and configures go-astilectron for us.
 package main
 
 import (
@@ -19,7 +20,7 @@ func main() {
 	}
 	defer a.Close()
 
-	// Start astilectron
+	// Start the TCP server for go-astilectron
 	sock, err := a.Listen()
 	if err != nil {
 		panic(err)
@@ -31,6 +32,8 @@ func main() {
 			fmt.Println(string(data))
 		}
 	}
+
+	// Wait until electron is ready before creating a new window.
 	a.WaitOn("app.event.ready")
 
 	// Create a new window
@@ -42,12 +45,14 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	fmt.Println("Creating window.")
 	if err = w.Create(); err != nil {
 		panic(err)
 	}
 
 	fmt.Println("Waiting...")
+	// Wai until we get the kill signal from astilectron.
 	a.Wait()
 	fmt.Println("...Done!")
 }
