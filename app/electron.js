@@ -3,7 +3,7 @@
  **/
 "use strict";
 
-const astilectron = require("astilectron");
+const astilectron = require("@sbrow/astilectron");
 const join = require("path").join;
 const child_process = require("child_process");
 
