@@ -2,37 +2,32 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"os"
 
 	"github.com/sbrow/go-astilectron"
 )
 
-type ConnectionInfo struct {
-	Addr string `json:"addr"`
-}
-
 func main() {
+	var port string
+
+	if len(os.Args) > 1 {
+		port = os.Args[1]
+	}
+
 	// Initialize astilectron
-	var a, err = astilectron.New(astilectron.Options{})
+	var a, err = astilectron.New(astilectron.Options{
+		SkipAstilectronSetup: true,
+		TCPPort:              port,
+	})
 	if err != nil {
 		panic(err)
 	}
 	defer a.Close()
 
 	// Start the TCP server for go-astilectron
-	sock, err := a.Listen()
-	if err != nil {
-		panic(err)
-	} else {
-		info := ConnectionInfo{Addr: sock.Addr().String()}
-		if data, err := json.Marshal(info); err != nil {
-			panic(err)
-		} else {
-			fmt.Println(string(data))
-		}
-	}
-
+	fmt.Printf("Starting go-astilectron on port %s...\n", port)
+	a.Start()
 	// Wait until electron is ready before creating a new window.
 	a.WaitOn("app.event.ready")
 
