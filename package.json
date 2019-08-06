@@ -4,14 +4,17 @@
   "main": "./app/electron.js",
   "license": "MIT",
   "scripts": {
-    "build": "go build -o app/main.exe src/main.go",
-    "start": "cross-env-shell electron \"$npm_package_main\""
+    "build": "go build src/main.go && shx mv -f main.* ./app",
+    "start": "cross-env-shell electron \"$npm_package_main\"",
+    "start:fresh": "yarn build && yarn start",
+    "kill": "taskkill /IM main.exe /F"
   },
   "dependencies": {
     "@sbrow/astilectron": "^0.1.0",
     "electron": "^6.0.0"
   },
   "devDependencies": {
-    "cross-env": "5.2.0"
+    "cross-env": "5.2.0",
+    "shx": "^0.3.2"
   }
 }
