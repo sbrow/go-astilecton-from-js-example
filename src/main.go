@@ -27,9 +27,8 @@ func main() {
 
 	// Start the TCP server for go-astilectron
 	fmt.Printf("Starting go-astilectron on port %s...\n", port)
-	a.Start()
 	// Wait until electron is ready before creating a new window.
-	a.WaitOn("app.event.ready")
+	a.Start()
 
 	// Create a new window
 	w, err := a.NewWindow("app/index.html", &astilectron.WindowOptions{
