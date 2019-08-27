@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/sbrow/go-astilectron"
+	"github.com/asticode/go-astilectron"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 	}
 
 	// Initialize astilectron
-	var a, err = astilectron.New(astilectron.Options{
+	a, err := astilectron.New(astilectron.Options{
 		SkipAstilectronSetup: true,
 		TCPPort:              port,
 	})
