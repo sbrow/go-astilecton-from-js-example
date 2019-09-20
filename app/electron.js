@@ -10,7 +10,6 @@ const child_process = require("child_process");
 const port = "8080";
 // Start go-astilectron
 const cmd = child_process.exec(`${join("app", "main")} ${port}`);
-
 cmd.stdout.pipe(process.stdout);
 cmd.stderr.pipe(process.stderr);
 

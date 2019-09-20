@@ -24,7 +24,7 @@ This package comes with the go-astilectron entry point already compiled (for Win
 However, If you want to modify the go code, you'll need to install [Golang](https://golang.org/dl/) and run:
 
 ```bash
-$ go get -u github.com/sbrow/astilectron
+$ go get -u github.com/asticode/astilectron
 ```
 
 # Starting

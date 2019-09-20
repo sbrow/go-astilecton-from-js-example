@@ -9,10 +9,6 @@ import (
 	"github.com/asticode/go-astilectron"
 )
 
-type ConnectionInfo struct {
-	Addr string `json:"addr"`
-}
-
 func main() {
 	port := new(int)
 
