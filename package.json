@@ -4,11 +4,11 @@
   "main": "./app/electron.js",
   "license": "MIT",
   "scripts": {
-    "build": "go build -o app/main.exe src/main.go",
+    "build": "go build src/main.go && mv main* ./app",
     "start": "cross-env-shell electron \"$npm_package_main\""
   },
   "dependencies": {
-    "@sbrow/astilectron": "^0.1.0",
+    "astilectron": "https://github.com/asticode/astilectron",
     "electron": "^6.0.0"
   },
   "devDependencies": {

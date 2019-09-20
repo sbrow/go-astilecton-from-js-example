@@ -2,10 +2,11 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"os"
+	"strconv"
 
-	"github.com/sbrow/go-astilectron"
+	"github.com/asticode/go-astilectron"
 )
 
 type ConnectionInfo struct {
@@ -13,28 +14,27 @@ type ConnectionInfo struct {
 }
 
 func main() {
+	port := new(int)
+
+	if len(os.Args) > 1 {
+		p, err := strconv.Atoi(os.Args[1])
+		if err != nil {
+			println(os.Args)
+			panic(err)
+		}
+		*port = p
+	}
+
 	// Initialize astilectron
-	var a, err = astilectron.New(astilectron.Options{})
+	var a, err = astilectron.New(astilectron.Options{SkipSetup: true, TCPPort: port})
 	if err != nil {
 		panic(err)
 	}
 	defer a.Close()
 
-	// Start the TCP server for go-astilectron
-	sock, err := a.Listen()
-	if err != nil {
-		panic(err)
-	} else {
-		info := ConnectionInfo{Addr: sock.Addr().String()}
-		if data, err := json.Marshal(info); err != nil {
-			panic(err)
-		} else {
-			fmt.Println(string(data))
-		}
-	}
-
+	fmt.Printf("Starting on port \"%s\"...\n", strconv.Itoa(*port))
 	// Wait until electron is ready before creating a new window.
-	a.WaitOn("app.event.ready")
+	a.Start()
 
 	// Create a new window
 	w, err := a.NewWindow("app/index.html", &astilectron.WindowOptions{
@@ -52,7 +52,7 @@ func main() {
 	}
 
 	fmt.Println("Waiting...")
-	// Wai until we get the kill signal from astilectron.
+	// Wait until we get the kill signal from astilectron.
 	a.Wait()
 	fmt.Println("...Done!")
 }
