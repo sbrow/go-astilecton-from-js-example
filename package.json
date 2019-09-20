@@ -4,7 +4,7 @@
   "main": "./app/electron.js",
   "license": "MIT",
   "scripts": {
-    "build": "go build src/main.go && shx mv -f main.* ./app",
+    "build": "go build src/main.go && shx mv -f main* ./app",
     "start": "cross-env-shell electron \"$npm_package_main\"",
     "start:fresh": "yarn build && yarn start",
     "kill": "taskkill /IM main.exe /F"

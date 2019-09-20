@@ -18,7 +18,7 @@ func main() {
 			println(os.Args)
 			panic(err)
 		}
-		*port = p
+		port = &p
 	}
 
 	// Initialize astilectron
