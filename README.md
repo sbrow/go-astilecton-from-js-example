@@ -21,10 +21,11 @@ $ npm install
 ## Setting up Go
 
 This package comes with the go-astilectron entry point already compiled (for Windows), so there's no need to have go installed to run it.
-However, If you want to modify the go code, you'll need to install [Golang](https://golang.org/dl/) and run:
+However, If you want to modify the go code, or run it on darwin / linux: you'll need to install [Golang](https://golang.org/dl/) and run:
 
 ```bash
 $ go get -u github.com/asticode/astilectron
+$ npm build
 ```
 
 # Starting
