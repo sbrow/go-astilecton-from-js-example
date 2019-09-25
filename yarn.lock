@@ -39,9 +39,10 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
 
-"astilectron@https://github.com/asticode/astilectron":
+astilectron@^0.33.0:
   version "0.33.0"
-  resolved "https://github.com/asticode/astilectron#17e268446ee09d4064a3e17625be05e67c93b42e"
+  resolved "https://registry.yarnpkg.com/astilectron/-/astilectron-0.33.0.tgz#62dcfe33a02adfc7836093bf6864d26404c86a3e"
+  integrity sha512-7lH0yDIcY4U2HDXRTOMcuN43kze8uERY4+jb5+1/MVyBSUFbmc9QUZjk7/+nrQ5HXk6swEu4tIjipcASOPRoKA==
 
 asynckit@^0.4.0:
   version "0.4.0"

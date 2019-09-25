@@ -10,7 +10,7 @@
     "kill": "taskkill /IM main.exe /F"
   },
   "dependencies": {
-    "astilectron": "https://github.com/asticode/astilectron",
+    "astilectron": "^0.33.0",
     "electron": "^6.0.0"
   },
   "devDependencies": {
