@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "astilectron": "^0.33.0",
-    "electron": "^6.0.0"
+    "electron": "^22.3.25"
   },
   "devDependencies": {
     "cross-env": "5.2.0",
